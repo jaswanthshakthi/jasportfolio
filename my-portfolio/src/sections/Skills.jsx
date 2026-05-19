@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
-import { Brain, Code2, Server } from "lucide-react";
+import { Brain, Code2, Server, Database, BarChart, GitBranch, Zap } from "lucide-react";
 import { SKILLS } from "../data/portfolioData";
 import GlowOrb from "../components/GlowOrb";
 import RevealSection from "../components/RevealSection";
@@ -9,6 +9,10 @@ const SKILL_ICONS = {
   Frontend: <Code2 size={18} />,
   Backend: <Server size={18} />,
   "AI & Tools": <Brain size={18} />,
+  Databases: <Database size={18} />,
+  "Data & Analytics": <BarChart size={18} />,
+  DevOps: <GitBranch size={18} />,
+  Automation: <Zap size={18} />,
 };
 
 export default function Skills() {
