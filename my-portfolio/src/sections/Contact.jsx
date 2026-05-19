@@ -41,7 +41,7 @@ export default function Contact() {
           <RevealSection className="space-y-6">
             {[
               { icon: <Mail size={18} />, label: "Email", value: CONTACT_EMAIL },
-              { icon: <Globe size={18} />, label: "Location", value: "Available Worldwide" },
+              { icon: <Globe size={18} />, label: "Location", value: "India-Remote worldwide" },
               { icon: <Sparkles size={18} />, label: "Schedule", value: "Book a free 30-min call" },
             ].map((item, i) => (
               <div
