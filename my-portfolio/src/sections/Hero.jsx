@@ -57,6 +57,12 @@ export default function Hero() {
       </div>
 
       <motion.div style={{ y, opacity }} className="relative z-50 max-w-5xl mx-auto px-6 text-center">
+        <div className="md:hidden relative mx-auto mt-24 mb-6 flex items-center justify-center w-full max-w-[240px] aspect-[4/5] pointer-events-none select-none">
+          <div className="relative z-10 w-full h-full rounded-[28px] border border-white/10 bg-[#050505] shadow-[0_18px_40px_rgba(0,0,0,0.6)] overflow-hidden flex items-center justify-center">
+            <img src="/img.png" alt="Hero" className="w-full h-full object-cover object-center block" />
+          </div>
+        </div>
+
         <motion.div
           initial={{ opacity: 0, y: 20, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -80,7 +86,7 @@ export default function Hero() {
           </span>
           <br />
           products that{" "}
-          <span className="bg-gradient-to-r from-white/90 to-white/50 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-white/90 to-white/50 bg-clip-text text-transparent">
             scale.
           </span>
         </motion.h1>

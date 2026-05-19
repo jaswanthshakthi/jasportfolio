@@ -15,9 +15,12 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
-  const scrollTo = (id) => {
-    document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
+  const scrollTo = (id, event) => {
+    event?.preventDefault();
     setOpen(false);
+    window.requestAnimationFrame(() => {
+      document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
+    });
   };
 
   return (
@@ -25,7 +28,7 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 inset-x-0 relative z-[70] transition-all duration-500 ${
         scrolled
           ? "bg-[#090909]/72 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-black/35"
           : "bg-transparent"
@@ -45,7 +48,8 @@ export default function Navbar() {
           {NAV_LINKS.map((link) => (
             <button
               key={link}
-              onClick={() => scrollTo(link)}
+              type="button"
+              onClick={(event) => scrollTo(link, event)}
               className={`px-1 py-2 text-base rounded-lg transition-all duration-200 ${
                 active === link.toLowerCase()
                   ? "text-violet-300 bg-violet-500/10"
@@ -80,13 +84,14 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-white/5 bg-[#0D0D0D]/95 backdrop-blur-xl"
+            className="md:hidden absolute top-full left-0 right-0 z-[80] border-t border-white/5 bg-[#0D0D0D]/98 backdrop-blur-xl shadow-2xl shadow-black/50"
           >
-            <div className="px-6 py-4 flex flex-col gap-1">
+            <div className="px-6 py-4 flex flex-col gap-1 max-h-[70vh] overflow-y-auto">
               {NAV_LINKS.map((link) => (
                 <button
                   key={link}
-                  onClick={() => scrollTo(link)}
+                  type="button"
+                  onClick={(event) => scrollTo(link, event)}
                   className="text-left px-4 py-3 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-all"
                 >
                   {link}

@@ -25,6 +25,7 @@ export default function App() {
         * { box-sizing: border-box; margin: 0; }
         html { scroll-behavior: smooth; }
         body { background: #0D0D0D; }
+        section[id] { scroll-margin-top: 88px; }
         button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
         button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
           outline: 2px solid rgba(167, 139, 250, 0.75);
